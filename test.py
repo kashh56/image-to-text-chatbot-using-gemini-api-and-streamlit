@@ -1,10 +1,13 @@
 import google.generativeai as genai
 import streamlit as st
 import PIL.Image
+import os
+from dotenv import load_dotenv
 
+load_dotenv()
 st.title("Visionary Chatbot: Describe Your Images with Gemini LLM. By - Akash Anandani")
 
-genai.configure(api_key='AIzaSyBl4PlPPFDi-YU39pxwcCpvtZlSd-LPPms')
+genai.configure(api_key=os.getenv('GOOGLE_API_KEY')
 model = genai.GenerativeModel('gemini-1.5-pro')
 
 img_uploader  = st.file_uploader('')
